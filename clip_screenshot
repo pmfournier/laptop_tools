@@ -1,0 +1,7 @@
+#!/bin/bash
+
+FILE="/tmp/screenshot.png"
+
+scrot "$FILE"
+
+xclip -t image/png -selection clipboard -i "$FILE"

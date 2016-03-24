@@ -1,0 +1,9 @@
+#!/bin/bash
+
+BL_FILE=/sys/class/backlight/acpi_video0/brightness
+
+if [ "$1" = "up" ]; then
+	echo $(( $(<$BL_FILE) + 1 )) >$BL_FILE
+elif [ "$1" = "down" ]; then
+	echo $(( $(<$BL_FILE) - 1 )) >$BL_FILE
+fi

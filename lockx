@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Lock x session when in i3
+
+SCREENSHOT_FILE=/tmp/screen.png
+
+# Take a screenshot
+scrot ${SCREENSHOT_FILE}
+
+# Pixellate it 10x
+mogrify -scale 10% -scale 1000% ${SCREENSHOT_FILE}
+
+# Lock screen displaying this image.
+i3lock -i ${SCREENSHOT_FILE}

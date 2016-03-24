@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cur_kb=$(setxkbmap -query | grep ^layout: | sed -re 's/.* ([^ ]+)+$/\1/')
+
+if [ "$cur_kb" = "us" ]; then
+	setxkbmap ca
+else
+	setxkbmap us
+fi

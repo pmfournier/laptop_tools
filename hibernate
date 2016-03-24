@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rmmod brcmsmac
+while [ -n "$(lsmod | grep brcmsmac)" ]; do
+	echo "Waiting for module to be unloaded"
+	sleep 0.2
+done
+echo platform > /sys/power/disk ; echo disk > /sys/power/state
